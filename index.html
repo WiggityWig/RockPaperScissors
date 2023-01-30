@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Computer selects a random number between 1 and 3
+
+    function getComputerChoice (min, max) {
+        let x = Math.floor(Math.random() * (max - min + 1) + min );
+        if (x === 1){
+            return "rock";
+        }
+            else if (x === 2){
+                return "paper";
+            }
+            else if (x ===3){
+                return "scissors";
+            }
+            
+            
+    }
+    let ComputerChoice = getComputerChoice(1,3);
+        //Convert computerSelection from an integer to a string. 1 for Rock, 2 for Paper, and 3 for Scissors
+        //User selects a random choice of either Rock, Paper, or Scissors
+        //Compare the two selections
+        //Assess Winner
+        //Reset
+    </script>
+</body>
+</html>

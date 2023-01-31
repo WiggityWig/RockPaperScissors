@@ -7,29 +7,84 @@
     <title>Document</title>
 </head>
 <body>
-    <script>
-        //Computer selects a random number between 1 and 3
+    <input id="play" type="button" value="Play: 'Rock, Paper, Scissors" onclick="playGame();" />
 
-    function getComputerChoice (min, max) {
-        let x = Math.floor(Math.random() * (max - min + 1) + min );
-        if (x === 1){
-            return "rock";
-        }
-            else if (x === 2){
-                return "paper";
-            }
-            else if (x ===3){
-                return "scissors";
-            }
-            
-            
+    <script> 
+//Rock, Paper, Scissors Game
+
+let playerScore = 0;
+let compScore= 0;
+let play;
+
+//Create a function to get a random number WHOLE number from the computer between 1 and 3.
+
+
+function randomNum(){
+    let x = Math.floor((Math.random() * 3)+1);
+    let compChoice;
+    switch (x) {
+        case 1:
+            compChoice = "rock";
+            break;
+        case 2:
+            compChoice = "paper"
+            break;
+        case 3:
+            compChoice = "scissors"
+            break;
+           }
+           return compChoice;
+}
+
+function playerChoice (){
+    let playerString = prompt("Rock, Paper, Scissors?");
+    let choice = playerString.toLowerCase();
+    return choice
+}
+
+function playRound(playerChoice,compChoice) { // Compares Parameters according to conditionals
+    let x = playerChoice; //simply coding for conditionals later
+    let y = compChoice; //simplify coding for conditionals later
+
+    if (x == y) { // both computer and player select same value
+        return console.log(("It's a Tie! Player score: " + playerScore + " | Computer score: " + compScore ))  ;  //return a value a value for playRound() if there is a tie
     }
-    let ComputerChoice = getComputerChoice(1,3);
-        //Convert computerSelection from an integer to a string. 1 for Rock, 2 for Paper, and 3 for Scissors
-        //User selects a random choice of either Rock, Paper, or Scissors
-        //Compare the two selections
-        //Assess Winner
-        //Reset
-    </script>
+        else if ( (x == "rock") && (y == "scissors") || (x == "paper") && (y == "rock") || (x == "scissors" ) && (y == "paper") )  { 
+            playerScore ++;
+            return console.log(("Player Wins! Player score: " + playerScore + " | Computer score: " + compScore));
+        }
+        else {
+            compScore ++;
+            return console.log( ("Computer Wins! Player score: " + playerScore + " | Computer score: " + compScore));        }
+
+    
+}
+
+
+function playGame() {
+    for (i = 0; i < 5; i++) {
+        let x = playRound(playerChoice(), randomNum());
+    }
+    if  (playerScore > compScore) {
+        console.log (" Final score: Player: " + playerScore + " | Computer: " + compScore + "| You won!");
+    }
+        else {
+            console.log (" Final score: Player: " + playerScore + " | Computer: " + compScore + "| You lost!");
+        }
+
+
+}
+
+
+
+
+//Create a function to get a user input prompt
+//Set conditional statements to evaluate the computer vs player choices and return a winner on a single round basis
+//Set up a loop of rounds ending at 5 rounds, keeping score and alerting who has the best out of 5. 
+
+        
+        
+        </script>
+    
 </body>
 </html>

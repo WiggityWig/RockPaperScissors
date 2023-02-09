@@ -5,86 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href= "style.css">
+    <script src="game.js" defer></script>
+
 </head>
-<body>
-    <input id="play" type="button" value="Play: 'Rock, Paper, Scissors" onclick="playGame();" />
+<body class = "page">
+<div class= "header">ROCK PAPER SCISSORS</div>
+<div class = "btn-container">
+    <button id= "rock" class = "btn">✊</button>
+    <button id= "paper" class = "btn">✋</button>
+    <button id= "scissors" class = "btn">✌</button>
+</div>
 
-    <script> 
-//Rock, Paper, Scissors Game
+<div id = "results">Select a choice the start the game!</div>
 
-let playerScore = 0;
-let compScore= 0;
-let play;
+<div class = "score-container">
+    <div id = "playerScr" class = "scores">Player Score: 0</div>
+    <div id = "computerScr"class = "scores">Computer Score: 0 </div>
+</div>
 
-//Create a function to get a random number WHOLE number from the computer between 1 and 3.
-
-
-function randomNum(){
-    let x = Math.floor((Math.random() * 3)+1);
-    let compChoice;
-    switch (x) {
-        case 1:
-            compChoice = "rock";
-            break;
-        case 2:
-            compChoice = "paper"
-            break;
-        case 3:
-            compChoice = "scissors"
-            break;
-           }
-           return compChoice;
-}
-
-function playerChoice (){
-    let playerString = prompt("Rock, Paper, Scissors?");
-    let choice = playerString.toLowerCase();
-    return choice
-}
-
-function playRound(playerChoice,compChoice) { // Compares Parameters according to conditionals
-    let x = playerChoice; //simply coding for conditionals later
-    let y = compChoice; //simplify coding for conditionals later
-
-    if (x == y) { // both computer and player select same value
-        return console.log(("It's a Tie! Player score: " + playerScore + " | Computer score: " + compScore ))  ;  //return a value a value for playRound() if there is a tie
-    }
-        else if ( (x == "rock") && (y == "scissors") || (x == "paper") && (y == "rock") || (x == "scissors" ) && (y == "paper") )  { 
-            playerScore ++;
-            return console.log(("Player Wins! Player score: " + playerScore + " | Computer score: " + compScore));
-        }
-        else {
-            compScore ++;
-            return console.log( ("Computer Wins! Player score: " + playerScore + " | Computer score: " + compScore));        }
-
-    
-}
-
-
-function playGame() {
-    for (i = 0; i < 5; i++) {
-        let x = playRound(playerChoice(), randomNum());
-    }
-    if  (playerScore > compScore) {
-        console.log (" Final score: Player: " + playerScore + " | Computer: " + compScore + "| You won!");
-    }
-        else {
-            console.log (" Final score: Player: " + playerScore + " | Computer: " + compScore + "| You lost!");
-        }
-
-
-}
-
-
-
-
-//Create a function to get a user input prompt
-//Set conditional statements to evaluate the computer vs player choices and return a winner on a single round basis
-//Set up a loop of rounds ending at 5 rounds, keeping score and alerting who has the best out of 5. 
-
-        
-        
-        </script>
-    
+<div id = "game-over"></div>
+<div id = button-container>
+    <button id = "restart">Restart</button>
+</div>  
 </body>
 </html>
